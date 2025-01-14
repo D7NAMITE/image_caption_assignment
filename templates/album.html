@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ album_name }}</title>
+</head>
+<body>
+    <h1>Album: {{ album_name }}</h1>
+    <ul>
+        {% for image, caption in images.items() %}
+        <li>
+            <img src="{{ url_for('static', filename='uploads/' + album_name + '/' + image) }}" alt="{{ caption }}" style="width:200px;">
+            <p>{{ caption }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Back to Albums</a>
+</body>
+</html>
